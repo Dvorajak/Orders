@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="WPF_Orders_Views.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Orders_Views.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0 10 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" 
+                            HorizontalAlignment="Right" Margin="2">
+                    <TextBox Text="{Binding SearchText}" Name="SearchBox" Width="150"/>
+                    <Button Command="{Binding CommandSearch}" IsDefault="True" Content="Hledat" Margin="10 0 0 0"/>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Button Content="Přidat zakázku" Width="100" Height="30" Command="{Binding CommandShowAddWindow}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Detail" Width="100" Height="30" Command="{Binding CommandDetailOrderView}" CommandParameter="Detail"/>
+                <Button Content="Smazat" Margin="15 0 0 0" Width="100" Height="30" Command="{Binding CommandDetailOrderView}" CommandParameter="Delete"/>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid Name="DataOrdersList" Grid.Row="2" IsReadOnly="True" 
+                  AutoGenerateColumns="False" ItemsSource="{Binding ObservableList}" 
+                  SelectedItem="{Binding SelectedOrder}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum dokončení" Binding="{Binding FinishOrderDate, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Název" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Číslo zakázky" Width="4*" Binding="{Binding OrderNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

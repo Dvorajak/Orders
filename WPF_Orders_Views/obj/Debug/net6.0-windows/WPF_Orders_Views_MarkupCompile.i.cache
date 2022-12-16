@@ -1,0 +1,20 @@
+﻿WPF_Orders_Views
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\Programy\Visual studio projects\WPF_Orders_Views\obj\Debug\net6.0-windows\
+WPF_Orders_Views
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+D:\Programy\Visual studio projects\WPF_Orders_Views\App.xaml
+4255573629
+
+211010959379
+194618410957
+MainWindow.xaml;Views\AddOrderView.xaml;Views\DetailView.xaml;Views\HomeView.xaml;
+
+True
+
